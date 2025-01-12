@@ -1,0 +1,307 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.19051358268037438 0.01991369206740996 0.981482562087851 2.9371263716985863
+  position 5.8431277871283065 -1.3730047550649953 3.337223966742199
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+  floorTileSize 0.25 0.25
+  wallHeight 0.15
+}
+Robot {
+  translation -5.318135276706432e-06 -1.7834035793623054e-17 0.14973105919322882
+  rotation 2.2362527146331064e-12 -1 -2.0251603841297686e-12 3.545481578243174e-05
+  children [
+    Pose {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+          }
+          geometry Box {
+            size 0.3 0.15 0.1
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.15 0 0.075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+          }
+          geometry Sphere {
+            radius 0.05
+          }
+        }
+        Pose {
+          translation 0 0 0.06
+          rotation 1 0 0 -0.2
+          children [
+            Camera {
+              fieldOfView 1.047
+              width 640
+              height 480
+            }
+          ]
+        }
+        Pose {
+          translation 0 0.04 0
+          children [
+            Microphone {
+            }
+          ]
+        }
+        Pose {
+          translation 0 -0.04 0
+          children [
+            Microphone {
+            }
+          ]
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.968622255862889e-18
+        axis 0 1 0
+        anchor -0.15 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "tail_motor"
+          maxVelocity 5
+          maxTorque 0.5
+        }
+        PositionSensor {
+          name "tail_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.15 0 0.05
+        rotation 0.04506678815766966 -0.9989839723199313 8.748166830009714e-05 6.781052673541532e-16
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.01
+            }
+          }
+        ]
+        name "tail"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.01
+        }
+        physics Physics {
+        }
+        linearVelocity -1.6848884890287722e-14 2.316737748810641e-16 -6.956283025999142e-12
+        angularVelocity -5.893204967048193e-16 -1.355222338725984e-13 8.277332743069837e-16
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.814760445980819e-10
+        axis 0 1 0
+        anchor 0.1 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "front_right_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.09999999991285083 0.1 -0.075
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg1"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+        linearVelocity -3.553943445785341e-14 4.8484111078831383e-17 1.3337446374961588e-10
+        angularVelocity -1.0486133746917089e-15 -5.964471976454463e-14 7.965558594034612e-16
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.797864226573555e-10
+        axis 0 1 0
+        anchor -0.1 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "back_right_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.10000000008704023 0.1 -0.075
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg2"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+        linearVelocity 2.568713679674086e-14 6.690379080577958e-17 1.3752665667321247e-10
+        angularVelocity -1.1057940976219506e-15 -6.9187874924796e-14 7.831905881711896e-16
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.814759826042351e-10
+        axis 0 1 0
+        anchor 0.1 -0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "front_left_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.09999999991285086 -0.1 -0.075
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg3"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+        linearVelocity -3.5498510219205384e-14 1.0141787948338305e-16 1.3337457684711073e-10
+        angularVelocity -1.2667765638736875e-15 -5.845182537055678e-14 7.772398510328647e-16
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.797865326332565e-10
+        axis 0 1 0
+        anchor -0.1 -0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "back_left_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.10000000008704027 -0.1 -0.075
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg4"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+        linearVelocity 2.5594956482889085e-14 1.5898100292450083e-16 1.3752624204774135e-10
+        angularVelocity -3.620881838119493e-16 -7.336300530745422e-14 7.483353503180102e-16
+      }
+    }
+  ]
+  boundingObject Pose {
+    children [
+      Shape {
+        geometry Box {
+          size 0.3 0.15 0.1
+        }
+      }
+    ]
+  }
+  physics Physics {
+  }
+  controller "pet_controller"
+  linearVelocity -1.0057198250381706e-14 3.20060610221163e-16 -1.2692503838121537e-12
+  angularVelocity -2.0404617355302385e-15 -1.3585577107714933e-13 8.163187064603993e-16
+}
+Pose {
+  translation 0.5 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+Pose {
+  translation 0.3 0.4 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.2
+      }
+    }
+  ]
+}

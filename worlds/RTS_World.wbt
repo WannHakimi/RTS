@@ -1,0 +1,293 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+
+Viewpoint {
+  orientation -0.4472135954999579 0.4472135954999579 0.7745966692414834 1.8234765819369754
+  position 0.6557053324185768 -0.5804537466034756 0.8791025553603712
+}
+
+TexturedBackground {
+}
+
+TexturedBackgroundLight {
+}
+
+RectangleArena {
+  floorSize 2 2
+  floorTileSize 0.25 0.25
+  wallHeight 0.15
+}
+
+Robot {
+  translation 0 0 0.15
+  children [
+    Transform {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+          }
+          geometry Box {
+            size 0.3 0.15 0.1
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.15 0 0.075
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+          }
+          geometry Sphere {
+            radius 0.05
+          }
+        }
+        Transform {
+          translation 0 0 0.06
+          rotation 1 0 0 -0.2
+          children [
+            Camera {
+              fieldOfView 1.047
+              width 640
+              height 480
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.04 0
+          children [
+            Microphone {
+            }
+          ]
+        }
+        Transform {
+          translation 0 -0.04 0
+          children [
+            Microphone {
+            }
+          ]
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.15 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "tail_motor"
+          maxVelocity 5.0
+          maxTorque 0.5
+        }
+        PositionSensor {
+          name "tail_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.15 0 0.05
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.01
+            }
+          }
+        ]
+        name "tail"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.01
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.1 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "front_right_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.1 0.1 -0.075
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg1"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.1 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "back_right_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.1 0.1 -0.075
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg2"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.1 -0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "front_left_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.1 -0.1 -0.075
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg3"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.1 -0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "back_left_leg"
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation -0.1 -0.1 -0.075
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+            }
+            geometry Cylinder {
+              height 0.15
+              radius 0.02
+            }
+          }
+        ]
+        name "leg4"
+        boundingObject Cylinder {
+          height 0.15
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject Transform {
+    children [
+      Shape {
+        geometry Box {
+          size 0.3 0.15 0.1
+        }
+      }
+    ]
+  }
+  physics Physics {
+  }
+  controller "pet_controller"
+}
+
+# Test objects
+Transform {
+  translation 0.5 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0.3 0.4 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.2
+      }
+    }
+  ]
+}

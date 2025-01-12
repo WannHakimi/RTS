@@ -1,0 +1,54 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/drinks/protos/WaterBottle.proto"
+
+WorldInfo {
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "barrel_material"
+      coulombFriction [
+        0.8
+      ]
+      bounce 0.2
+      forceDependentSlip [
+        0.01
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.5042378674890878 0.10340846303949118 0.8573510732260544 2.7935072072376643
+  position 3.588477610767083 -1.60149467609284 6.908916895476575
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 0.25 0.25
+  wallHeight 0.05
+}
+WaterBottle {
+  hidden linearVelocity_0 -3.38727991809872e-05 3.3191086773511444e-08 -1.96646419159964e-06
+  hidden angularVelocity_0 -1.3640537013216776e-06 -0.0007268201852128995 7.955006257869898e-07
+  translation -0.024870051053271527 -0.03448695563979286 0.04367213642402611
+  rotation -0.9185927608503592 -0.27916377278791704 -0.27974082232690195 1.656504594570819
+}
+E-puck {
+  hidden position_0_0 1.5518976507411494e-08
+  hidden position_0_1 1.509618754440898e-08
+  hidden linearVelocity_0 3.6792462187464364e-06 2.450334970863684e-08 2.1286881576301582e-05
+  hidden angularVelocity_0 9.054024940732117e-06 0.00011721729592825194 -5.510201192038871e-06
+  hidden linearVelocity_1 4.424559595130091e-06 -2.234395366002399e-08 2.132092601668989e-05
+  hidden angularVelocity_1 9.052781174902326e-06 0.00011721473564806469 -5.510701058751562e-06
+  hidden linearVelocity_2 4.139401697226054e-06 -1.9436039327431043e-08 2.0916341976264476e-05
+  hidden angularVelocity_2 9.055217848834331e-06 0.00011721978414716286 -5.509763261069134e-06
+  translation 0.05548674408612626 0.09051604169660937 0.0002695390095330437
+  rotation 0.0017295749300250234 0.8493163247098598 -0.5278814158046268 0.01971854811976248
+  controller "epuck_controller"
+}
